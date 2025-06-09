@@ -1,0 +1,42 @@
+[tool.briefcase]
+project_name = "Tito"
+bundle = "br.com.sailtech.tito"
+version = "0.0.1"
+url = "https://sailtech.com.br/tito"
+license.file = "LICENSE"
+author = "Brayan Bedritchuk"
+author_email = "brayan.bedritchuk@gmail.com"
+
+[tool.briefcase.app.tito]
+formal_name = "Tito"
+description = "General AI assistant"
+long_description = """More details about the app should go here.
+"""
+sources = [
+    "src/tito",
+]
+test_sources = [
+    "tests",
+]
+
+requires = [
+    "toga",
+    "numpy",
+    "scipy",
+    "sounddevice",
+    "pyttsx3",
+    "openai",
+    "whisper",
+    "torch",
+    "torchaudio",
+]
+
+test_requires = [
+    "pytest",
+]
+
+[tool.briefcase.app.tito.macOS]
+universal_build = true
+requires = [
+    "toga-cocoa"
+]
