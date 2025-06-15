@@ -21,7 +21,13 @@ def generate_summary(transcript: str, output_path: Path) -> None:
       response = client.chat.completions.create(
           model="gpt-3.5-turbo",
           messages=[
-              {"role": "system", "content": "Você é um assistente que resume reuniões em português."},
+              {"role": "system", "content": (
+              "Você é um assistente especializado em gerar resumos de transcrições de reuniões ou áudios gravados, "
+              "respeitando a língua original falada pelos participantes. "
+              "Seu resumo deve começar com um título na primeira linha, que capture de forma breve o tema principal da reunião. "
+              "Depois, apresente os principais tópicos discutidos, decisões tomadas e próximos passos, de forma clara e organizada, "
+              "utilizando marcadores (como hífens ou bullets) se necessário."
+              )},
               {"role": "user", "content": prompt}
           ],
           temperature=0.3

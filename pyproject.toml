@@ -29,6 +29,7 @@ requires = [
     "whisper",
     "torch",
     "torchaudio",
+    "notion-client",
 ]
 
 test_requires = [

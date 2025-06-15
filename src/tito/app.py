@@ -12,6 +12,7 @@ from tito.transcriber.summarizer import generate_summary
 from tito.transcriber.speech import speak
 from tito.transcriber.utils import set_button_enabled
 from tito.transcriber.utils import invoke_later
+from tito.transcriber.notion_writer import send_transcription_to_notion
 
 import logging
 import traceback
@@ -109,6 +110,9 @@ class TitoApp(toga.App):
             summary_file.write_text(summary, encoding="utf-8")
             speak("Summary saved successfully.")
             self.update_status("Summary saved successfully.")
+
+            speak("Sending to Notion.")
+            send_transcription_to_notion(summary, context="Meeting")
 
         except Exception as e:
             self.handle_error("Error during transcription or summary", e)

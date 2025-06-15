@@ -15,7 +15,7 @@ _model = None
 def get_model():
     global _model
     if _model is None:
-        _model = whisper.load_model("small")
+        _model = whisper.load_model("large")
     return _model
 
 def transcribe_audio(audio_data: list[np.ndarray], output_path: Path) -> Optional[str]:
@@ -25,7 +25,7 @@ def transcribe_audio(audio_data: list[np.ndarray], output_path: Path) -> Optiona
             write(temp_audio.name, SAMPLE_RATE, audio_np)
             result = get_model().transcribe(
                 temp_audio.name,
-                language=LANGUAGE,
+                # language=LANGUAGE,
                 temperature=0,
                 verbose=True
             )

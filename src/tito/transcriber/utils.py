@@ -1,8 +1,5 @@
 import textwrap
-from rubicon.objc import ObjCClass
 import toga
-
-NSObject = ObjCClass("NSObject")
 
 def wrap_text(text: str, width: int = 100) -> str:
     return textwrap.fill(text, width=width)
